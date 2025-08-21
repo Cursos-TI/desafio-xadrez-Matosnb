@@ -1,0 +1,75 @@
+#include <stdio.h>
+
+// Função para mostrar movimentos de um peão
+void movimentoPeao() {
+    printf("\nPeão:\n");
+    printf(" - Move 1 casa para frente.\n");
+    printf(" - No primeiro movimento, pode andar 2 casas.\n");
+}
+
+// Função para mostrar movimentos de uma torre
+void movimentoTorre() {
+    printf("\nTorre:\n");
+    printf(" - Move em linha reta horizontal ou vertical.\n");
+    printf(" - Não pode pular peças.\n");
+}
+
+// Função para mostrar movimentos de um bispo
+void movimentoBispo() {
+    printf("\nBispo:\n");
+    printf(" - Move apenas em diagonais.\n");
+    printf(" - Não pode pular peças.\n");
+}
+
+// Função para mostrar movimentos de um cavalo
+void movimentoCavalo() {
+    printf("\nCavalo:\n");
+    printf(" - Move em forma de L (2 casas em uma direção e 1 em outra).\n");
+    printf(" - Pode pular outras peças.\n");
+}
+
+// Função para mostrar movimentos de uma dama
+void movimentoDama() {
+    printf("\nDama:\n");
+    printf(" - Move em linha reta (vertical, horizontal) e diagonal.\n");
+    printf(" - Combina movimentos da torre e do bispo.\n");
+}
+
+// Função para mostrar movimentos de um rei
+void movimentoRei() {
+    printf("\nRei:\n");
+    printf(" - Move 1 casa em qualquer direção.\n");
+    printf(" - Movimento especial: roque (junto com a torre).\n");
+}
+
+// Programa principal
+int main() {
+    int escolha;
+
+    do {
+        printf("\n=== Simulador de Movimentos de Xadrez ===\n");
+        printf("1 - Peão\n");
+        printf("2 - Torre\n");
+        printf("3 - Bispo\n");
+        printf("4 - Cavalo\n");
+        printf("5 - Dama\n");
+        printf("6 - Rei\n");
+        printf("0 - Sair\n");
+        printf("Escolha uma peça: ");
+        scanf("%d", &escolha);
+
+        switch(escolha) {
+            case 1: movimentoPeao(); break;
+            case 2: movimentoTorre(); break;
+            case 3: movimentoBispo(); break;
+            case 4: movimentoCavalo(); break;
+            case 5: movimentoDama(); break;
+            case 6: movimentoRei(); break;
+            case 0: printf("Saindo...\n"); break;
+            default: printf("Opção inválida!\n");
+        }
+
+    } while(escolha != 0);
+
+    return 0;
+}
