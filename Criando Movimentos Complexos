@@ -1,0 +1,82 @@
+    #include <stdio.h>
+
+// ==============================
+// Funções Recursivas
+// ==============================
+
+// Movimento recursivo da Torre: "direita"
+void moverTorre(int casas) {
+    if (casas == 0) return; // caso base
+    printf("Direita\n");
+    moverTorre(casas - 1);  // chamada recursiva
+}
+
+// Movimento recursivo da Rainha: "esquerda"
+void moverRainha(int casas) {
+    if (casas == 0) return;
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
+
+// Movimento recursivo do Bispo com loops aninhados
+void moverBispo(int linhas, int colunas) {
+    if (linhas == 0) return; // caso base da recursão
+    for (int i = 0; i < linhas; i++) {      // loop vertical
+        for (int j = 0; j < colunas; j++) { // loop horizontal
+            printf("Cima, Direita\n");
+        }
+    }
+}
+
+// ==============================
+// Movimento do Cavalo com loops complexos
+// ==============================
+void moverCavalo() {
+    printf("Movimento do Cavalo (em L para cima e direita):\n");
+
+    int contLinha, contColuna;
+
+    for (contLinha = 0; contLinha < 1; contLinha++) { // controle do L
+        contColuna = 0;
+        while (contColuna < 3) {
+            if (contColuna < 2) {
+                printf("Cima\n"); // duas casas para cima
+                contColuna++;
+                continue; // volta ao while
+            } else {
+                printf("Direita\n"); // uma casa para a direita
+                break; // termina o L
+            }
+        }
+    }
+}
+
+int main() {
+    // ================================
+    // Movimentos Recursivos
+    // ================================
+
+    int casasTorre = 5;
+    int casasBispo = 5;
+    int casasRainha = 8;
+
+    printf("Movimento da Torre (recursivo, 5 casas para a direita):\n");
+    moverTorre(casasTorre);
+    printf("\n");
+
+    printf("Movimento do Bispo (recursivo + loops aninhados, 5 casas diagonal):\n");
+    moverBispo(casasBispo, casasBispo);
+    printf("\n");
+
+    printf("Movimento da Rainha (recursivo, 8 casas para a esquerda):\n");
+    moverRainha(casasRainha);
+    printf("\n");
+
+    // ================================
+    // Movimento Complexo do Cavalo
+    // ================================
+    moverCavalo();
+    printf("\n");
+
+    return 0;
+}
